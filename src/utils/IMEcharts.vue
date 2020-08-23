@@ -55,11 +55,11 @@ export default {
   },
 
   mounted() {
-    window.addEventListener('resize', this.resizeCharts);
+    window.addEventListener("resize", this.resizeCharts);
   },
 
   destroyed() {
-    window.removeEventListener('resize', this.resizeCharts);
+    window.removeEventListener("resize", this.resizeCharts);
   },
 
   computed: {
@@ -68,7 +68,7 @@ export default {
       return this.isAxisChart ? this.axisOption : this.noAxisOption;
     },
     isCollapse() {
-      return this.$store.state.tab.isCollapse
+      return this.$store.state.tab.isCollapse;
     }
   },
 
@@ -76,19 +76,19 @@ export default {
     return {
       theEcharts: null,
       axisOption: {
-        tooltip:{
-          trigger: 'axis'
+        tooltip: {
+          trigger: "axis"
         },
         legend: {
           textStyle: {
-            color: '#333'
+            color: "#333"
           }
         },
         xAxis: {
           type: "category",
           data: [],
-          axisLine:{
-            lineStyle:{
+          axisLine: {
+            lineStyle: {
               color: "#17b3a3"
             }
           }
@@ -97,40 +97,49 @@ export default {
           {
             type: "value",
             axisLine: {
-              lineStyle:{
+              lineStyle: {
                 color: "#17b3a3"
               }
             }
-          },
-
+          }
         ],
         series: [],
-        color:['#2ec7c9',
-          '#b6a2de',
-          '#5ab1ef',
-          '#ffb980',
-          '#d87a80',
-          '#8d98b3',
-          '#e5cf0d',
-          '#97b552',
-          '#95706d',
-          '#dc69aa',
-          '#07a2a4',
-          '#9a7fd1',
-          '#588dd5',
-          '#f5994e',
-          '#c05050',
-          '#59678c',
-          '#c9ab00',
-          '#7eb00a',
-          '#6f5553',
-          '#c14089']
+        color: [
+          "#2ec7c9",
+          "#b6a2de",
+          "#5ab1ef",
+          "#ffb980",
+          "#d87a80",
+          "#8d98b3",
+          "#e5cf0d",
+          "#97b552",
+          "#95706d",
+          "#dc69aa",
+          "#07a2a4",
+          "#9a7fd1",
+          "#588dd5",
+          "#f5994e",
+          "#c05050",
+          "#59678c",
+          "#c9ab00",
+          "#7eb00a",
+          "#6f5553",
+          "#c14089"
+        ]
       },
       noAxisOption: {
         tooltip: {
-          trigger: 'item'
+          trigger: "item"
         },
-        color: ['#0f78f4', '#dd536b', '#9462e5', '#a6a6a6', '#e1bb22', '#39c362', '#3ed1cf'],
+        color: [
+          "#0f78f4",
+          "#dd536b",
+          "#9462e5",
+          "#a6a6a6",
+          "#e1bb22",
+          "#39c362",
+          "#3ed1cf"
+        ],
         series: []
       }
     };
@@ -146,8 +155,8 @@ export default {
     },
     isCollapse() {
       setTimeout(() => {
-        this.resizeCharts()
-      }, 300)
+        this.resizeCharts();
+      }, 300);
     }
   }
 };

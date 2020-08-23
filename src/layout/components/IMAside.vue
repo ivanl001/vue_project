@@ -81,6 +81,8 @@ export default {
           ]
         }
       ]
+
+      /*     theMenu: []*/
     };
   },
   methods: {

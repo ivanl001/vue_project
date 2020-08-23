@@ -19,8 +19,28 @@ const routes = [
       {
         path: "/video",
         component: () => import("../views/video/Video")
+      },
+      {
+        path: "/other",
+        children: [
+          {
+            path: "/child01",
+            component: () => import("../views/other/Child01")
+          },{
+            path: "/child01",
+            component: () => import("../views/other/Child02")
+          },{
+            path: "/child01",
+            component: () => import("../views/other/Child03")
+          }
+        ]
       }
     ]
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("../views/login/Login")
   }
 ];
 
