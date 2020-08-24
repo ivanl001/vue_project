@@ -9,7 +9,7 @@
   >
     <template v-for="(item, menu_k) in theMenu">
       <el-menu-item
-        :index="item.path"
+        :index="item.name"
         :key="menu_k"
         @click="clickMenu(item)"
         v-if="!item.children"
@@ -18,11 +18,12 @@
         <span slot="title">{{ item.name }}</span>
       </el-menu-item>
 
-      <el-submenu :index="item.path" v-if="item.children" :key="menu_k">
+      <el-submenu :index="item.name" v-if="item.children" :key="menu_k">
         <template slot="title">
           <i :class="item.icon"></i>
           <span> {{ item.name }} </span>
         </template>
+
         <el-menu-item
           :index="subItem.path"
           @click="clickMenu(subItem)"
@@ -42,7 +43,7 @@ export default {
   name: "IMAside",
   data() {
     return {
-      theMenu: [
+      /*theMenu: [
         {
           path: "/home",
           name: "home",
@@ -80,9 +81,8 @@ export default {
             }
           ]
         }
-      ]
-
-      /*     theMenu: []*/
+      ]*/
+      /*theMenu: []*/
     };
   },
   methods: {
@@ -102,7 +102,7 @@ export default {
     isCollapse() {
       return this.$store.state.tab.isCollapse;
     },
-    menu() {
+    theMenu() {
       return this.$store.state.tab.menu;
     }
   }

@@ -21,7 +21,7 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item icon="el-icon-plus">个人中心</el-dropdown-item>
-          <el-dropdown-item icon="el-icon-circle-plus"
+          <el-dropdown-item icon="el-icon-circle-plus" @click.native="logout"
             >退出登陆</el-dropdown-item
           >
         </el-dropdown-menu>
@@ -49,6 +49,13 @@ export default {
     menuBtnClick() {
       // console.log("ddd")
       this.$store.commit("collapsOrOpeneMenu");
+    },
+    logout() {
+      console.log("退出登陆！！！");
+      this.$store.commit("clearToken");
+      this.$store.commit("clearMenu");
+      location.reload();
+      this.$router.push({ path: "/login" });
     }
   }
 };

@@ -6,7 +6,7 @@ export default {
     // 先判断用户是否存在
     if (username === "admin" || username === "wp") {
       // 判断账号和密码是否对应
-      if (username === "admin" && password === "123456") {
+      if (username === "admin" && password === "111") {
         return {
           code: 20000,
           data: {
@@ -42,14 +42,21 @@ export default {
                     name: "child01",
                     label: "页面1",
                     icon: "el-icon-s-release",
-                    url: ""
+                    url: "other/Child01"
                   },
                   {
                     path: "/child02",
                     name: "child02",
                     label: "页面2",
                     icon: "el-icon-s-ticket",
-                    url: ""
+                    url: "other/Child02"
+                  },
+                  {
+                    path: "/child03",
+                    name: "child03",
+                    label: "页面3",
+                    icon: "el-icon-s-comment",
+                    url: "other/Child03"
                   }
                 ]
               }
@@ -58,24 +65,24 @@ export default {
             message: "获取成功"
           }
         };
-      } else if (username === "wp" && password === "123456") {
+      } else if (username === "wp" && password === "111") {
         return {
           code: 20000,
           data: {
             menu: [
               {
-                path: "/",
+                path: "/home",
                 name: "home",
                 label: "首页",
-                icon: "s-home",
-                url: "Home/Home"
+                icon: "el-icon-s-home",
+                url: "home/Home"
               },
               {
                 path: "/video",
                 name: "video",
                 label: "视频管理页",
-                icon: "video-play",
-                url: "VideoManage/VideoManage"
+                icon: "el-icon-phone",
+                url: "video/Video"
               }
             ],
             token: Mock.Random.guid(),

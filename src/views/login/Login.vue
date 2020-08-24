@@ -31,6 +31,21 @@ export default {
       this.$http.post("/permission/getMenu", this.form).then(res => {
         res = res.data;
         console.log(res);
+
+        if (res.code === 20000) {
+          console.log("登陆成功了");
+          this.$store.commit("clearMenu");
+          this.$store.commit("setMenu", res.data.menu);
+
+          this.$store.commit("setToken", res.data.token);
+
+          this.$store.commit("addMenu", this.$router);
+          //因为路由里面已经有相关的数据，所以这里直接跳转到首页即可
+          this.$router.push({ path: "/home" });
+        } else {
+          this.$message.warning(res.data.message);
+        }
+
         /*if (res.code === 20000) {
           this.$store.commit("clearMenu");
           this.$store.commit("setMenu", res.data.menu);
